@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+import clickup.urls
 
 urlpatterns = [
     #admin
     path('admin/', admin.site.urls),
     #Oauth
-    path('auth/', include('drf_social_oauth2.urls', namespace='drf'))
+    path('auth/', include('drf_social_oauth2.urls', namespace='drf')),
+    #clickup api
+    path('',include('clickup.urls'))
 ]

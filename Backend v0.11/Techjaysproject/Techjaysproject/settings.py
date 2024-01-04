@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'Users',
     'clickup',
     'clickupython',
+    'mock_api',
+    'pandas',
 ]
 
 MIDDLEWARE = [

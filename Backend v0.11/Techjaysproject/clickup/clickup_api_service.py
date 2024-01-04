@@ -9,7 +9,7 @@ API_KEY = 'pk_88837892_ET6IHZF34HQH9BBJLVJKJMF8UN87J47B'
 CLICKUP_API_KEY = 'YOUR_CLICKUP_API_KEY'  # Replace with your ClickUp API key
 
 def get_clickup_projects():
-    url = 'https://app.clickup.com/9002025943/v/s/90020047409'
+    url = 'https://api.clickup.com/api/v2/team/{team_id}/project'
     headers = {
         'Authorization': API_KEY,
         'Content-Type': 'application/json'

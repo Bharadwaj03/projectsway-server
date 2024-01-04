@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-import clickup.urls
+
 
 urlpatterns = [
     #admin
@@ -23,5 +23,7 @@ urlpatterns = [
     #Oauth
     path('auth/', include('drf_social_oauth2.urls', namespace='drf')),
     #clickup api
-    path('',include('clickup.urls'))
+    path('api/',include('clickup.urls')),
+    #mock api app
+    path('newapi/',include('mock_api.urls')),
 ]

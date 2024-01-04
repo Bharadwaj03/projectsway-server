@@ -11,8 +11,9 @@ import json
 from clickupython import client
 from django.http import JsonResponse
 
-  API_KEY = 'pk_88837892_G4RHP7FCJE4IABL7IXJIGANKSV94FI2Z'
-  client = ClickUpClient(API_KEY)
+API_KEY = 'pk_88837892_ET6IHZF34HQH9BBJLVJKJMF8UN87J47B'
+cl = client.ClickUpClient(API_KEY)
+
 
 def get_task(request, task_id):
     c = client.ClickUpClient(API_KEY)
@@ -55,4 +56,12 @@ def get_filtered_list(request, task_id, list_id):
     return JsonResponse(data)
 
 
+from .clickup_api_service import get_clickup_projects
 
+class ClickUpProjectsAPIView(APIView):
+    def get(self, request):
+        projects = get_clickup_projects()
+        if projects:
+            return Response(projects)
+        else:
+            return Response({"error": "Failed to fetch projects from ClickUp"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
